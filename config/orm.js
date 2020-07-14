@@ -5,7 +5,6 @@
 
 // Import MYSQL connection.
 var connection = require("../config/connection.js");
-const { query } = require("express");
 
 // Helper function for SQL syntax.
 function printQuestionMarks(num) {
@@ -30,14 +29,51 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-//select all function
 const orm = {
-  selectAll: function (tableInput, burger) {
-    const queryString = "SELECT * FROM " + tableInput + ";";
+  //select all function
+  all: function (tableInput, burger) {
+    let queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function (err, res) {
       if (err) throw err;
+    });
+    burger(res);
+  },
+  //insert one function
+  create: function (table, cols, val, burger) {
+    let queryString = "INSERT INTO " + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
+    console.log(queryString);
+
+    connection.query(queryString, val, function (err, res) {
+      if (err) {
+        throw err;
+      }
+      burger(res);
+    });
+  },
+  update: function (table, objColVals, condition, burger) {
+    let queryString = "UPDATE " + table;
+
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+    console.query(queryString, function (err, res) {
+      if (err) {
+        throw err;
+      }
       burger(res);
     });
   },
 };
-
+// Export the orm object for the model in burger.js
+module.exports = orm;
