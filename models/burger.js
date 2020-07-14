@@ -17,6 +17,11 @@ const burger = {
       burger(res);
     });
   },
+  delete: function (condition, burger) {
+    orm.delete("burger", condition, function (res) {
+      burger(res);
+    });
+  },
 };
 
 // export to controller
