@@ -34,9 +34,11 @@ const orm = {
   all: function (tableInput, burger) {
     let queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function (err, res) {
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
+      burger(res);
     });
-    burger(res);
   },
   //insert one function
   create: function (table, cols, val, burger) {

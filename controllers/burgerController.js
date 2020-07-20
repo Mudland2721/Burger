@@ -5,16 +5,22 @@ const router = express.Router();
 // import burger.js
 const burger = require("../models/burger");
 
-// routes
 router.get("/", function (req, res) {
+  // console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
   burger.all(function (data) {
-    let hbsObj = {
-      burger: data,
+    let burgerObj = {
+      burgerObj: data,
     };
-    console.log(hbsObj);
-    res.render("index", hbsObj);
+    console.log(burgerObj);
+    res.render("index", burgerObj);
   });
 });
+
+//i can get to homepage -- it doesnt like the all orm
+// router.get("/", function (req, res) {
+//   console.log("here we GOOOOOOOOOOOOOOOOOOO");
+//   res.render("index");
+// });
 
 router.post("/api/burger", function (req, res) {
   burger.create(
@@ -31,7 +37,7 @@ router.put("/api/burger/:id", function (req, res) {
 
   console.log("HERE WE GOOOOOOOOOOOOOOOOOO!!!!!!!!", condition);
 
-  burger.update(
+  burger.updateOne(
     {
       devoured: req.body.devoured,
     },
