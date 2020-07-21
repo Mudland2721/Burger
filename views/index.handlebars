@@ -6,11 +6,11 @@
 
     {{#each burgerObj}}
     {{#unless this.devoured}}
-    <li>
-        {{>burger-block devoured=true}}
-    </li>
-    {{/unless}}
-    {{/each}}
+</ul>
+{{>burger-block devoured=true}}
+</ul>
+{{/unless}}
+{{/each}}
 
 </ul>
 
@@ -20,9 +20,9 @@
 
     {{#each burgerObj}}
     {{#if this.devoured}}
-    <li>
+    <ul>
         {{>burger-block devoured=false}}
-    </li>
+    </ul>
     {{/if}}
     {{/each}}
 
