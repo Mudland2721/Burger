@@ -1,12 +1,9 @@
 const orm = require("../config/orm.js");
 
-// The variables cols and vals are arrays.
 const burger = {
   //select All function
   all: function (cols, vals, cb) {
     orm.all("burgers", cols, vals, function (res) {
-      // console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
-
       cb(res);
     });
   },
@@ -19,7 +16,6 @@ const burger = {
   },
 
   // update One function
-  // getting not a function error
 
   update: function (id, cb) {
     var condition = "id=" + id;
@@ -35,5 +31,5 @@ const burger = {
   },
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller
 module.exports = burger;

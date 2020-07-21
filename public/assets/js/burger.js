@@ -13,7 +13,6 @@ $(document).ready(function () {
     });
   }
   $("#addBtn").on("click", function (event) {
-    // console.log("clicked");
     event.preventDefault();
     let newBurger = {
       name: $("#burg").val().trim(),
@@ -29,3 +28,5 @@ $(document).ready(function () {
     });
   });
 });
+
+//need to add delete functionality to the app which will come at a later date

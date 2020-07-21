@@ -1,8 +1,3 @@
-// need three function
-//selectAll()
-//insertOne()
-//updateOne()
-
 // Import MYSQL connection.
 var connection = require("../config/connection.js");
 

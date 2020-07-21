@@ -2,7 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-// import burger.js
 const burger = require("../models/burger");
 
 router.get("/", function (req, res) {
@@ -10,10 +9,7 @@ router.get("/", function (req, res) {
     let burgerObj = {
       burgerObj: data,
     };
-    /// not getting here
     res.render("index", burgerObj);
-
-    // console.log(burgerObj);
   });
 });
 
