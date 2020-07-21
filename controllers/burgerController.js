@@ -13,7 +13,7 @@ router.get("/", function (req, res) {
     /// not getting here
     res.render("index", burgerObj);
 
-    console.log(burgerObj);
+    // console.log(burgerObj);
   });
 });
 

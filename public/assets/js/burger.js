@@ -18,13 +18,21 @@ $(document).ready(function () {
 
       let newBurger = {
         name: $("#burg").val().trim(),
-        devoured: 0,
       };
 
-      $.ajax("/api/burger", {
-        type: "POST",
-        data: newBurger,
-      }).then(function () {
+      $.ajax(
+        {
+          accepts: {
+            dataType: `json`,
+          },
+        },
+        "/api/burger",
+        {
+          type: "POST",
+          dataType: `json`,
+          data: newBurger,
+        }
+      ).then(function () {
         location.reload();
       });
     });
