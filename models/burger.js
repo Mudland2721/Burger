@@ -21,7 +21,7 @@ const burger = {
   // update One function
   // getting not a function error
 
-  updateOne: function (condition, cb) {
+  updateOne: function (id, cb) {
     var condition = "id=" + id;
     orm.updateOne("burgers", { devoured: true }, condition, function (res) {
       cb(res);
