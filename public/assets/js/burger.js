@@ -13,36 +13,41 @@ $(document).ready(function () {
     });
 
     $("#addBtn").on("click", function (event) {
-      console.log("clicked");
+      // console.log("clicked");
       event.preventDefault();
-
       let newBurger = {
         name: $("#burg").val().trim(),
       };
 
-      $.ajax(
-        {
-          accepts: {
-            dataType: `json`,
-          },
-        },
-        "/api/burger",
-        {
-          type: "POST",
-          dataType: `json`,
-          data: newBurger,
-        }
-      ).then(function () {
+      $.ajax({
+        type: "post",
+        url: "/api/burger",
+        dataType: "json",
+        data: newBurger,
+      }).then(function () {
         location.reload();
       });
     });
   }
 });
 
-// $(".create-from").on("submit", function (event) {
-//   // Make sure to preventDefault on a submit event.
-//   event.preventDefault();
-//   //would like to know what this part is doing i don't understand it
-//     let newBur
+// console.log(newBurger);
+// $.ajax(
+//   {
+//     accepts: {
+//       dataType: `json`,
+//     },
+//   },
+//   "/api/burger",
+//   {
+//     type: "POST",
+//     dataType: `json`,
+//     data: newBurger,
+//   }
+// ).then(function () {
+//   location.reload();
+// });
 
+// $.post("/api/burger", newBurger).then(function () {
+//   location.reload();
 // });
