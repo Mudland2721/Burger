@@ -7,7 +7,7 @@
     {{#each burgerObj}}
     {{#unless this.devoured}}
     <li>
-        {{partials/burger-block devoured=true}}
+        {{>burger-block devoured=true}}
     </li>
     {{/unless}}
     {{/each}}
@@ -21,7 +21,7 @@
     {{#each burgerObj}}
     {{#if this.devoured}}
     <li>
-        {{partials/burger-block devoured=false}}
+        {{>burger-block devoured=false}}
     </li>
     {{/if}}
     {{/each}}
