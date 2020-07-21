@@ -11,43 +11,21 @@ $(document).ready(function () {
         location.reload();
       });
     });
-
-    $("#addBtn").on("click", function (event) {
-      // console.log("clicked");
-      event.preventDefault();
-      let newBurger = {
-        name: $("#burg").val().trim(),
-      };
-
-      $.ajax({
-        type: "post",
-        url: "/api/burger",
-        dataType: "json",
-        data: newBurger,
-      }).then(function () {
-        location.reload();
-      });
-    });
   }
+  $("#addBtn").on("click", function (event) {
+    // console.log("clicked");
+    event.preventDefault();
+    let newBurger = {
+      name: $("#burg").val().trim(),
+    };
+
+    $.ajax({
+      type: "post",
+      url: "/api/burger",
+      dataType: "json",
+      data: newBurger,
+    }).then(function () {
+      location.reload();
+    });
+  });
 });
-
-// console.log(newBurger);
-// $.ajax(
-//   {
-//     accepts: {
-//       dataType: `json`,
-//     },
-//   },
-//   "/api/burger",
-//   {
-//     type: "POST",
-//     dataType: `json`,
-//     data: newBurger,
-//   }
-// ).then(function () {
-//   location.reload();
-// });
-
-// $.post("/api/burger", newBurger).then(function () {
-//   location.reload();
-// });
