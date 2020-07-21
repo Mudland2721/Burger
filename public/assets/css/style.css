@@ -1,5 +1,6 @@
 body {
   background-image: url(../images/burgerPic.jpg);
+  background-position: center;
 }
 
 h1 {
@@ -35,4 +36,8 @@ li {
 }
 label {
   color: yellow;
+}
+
+body {
+  text-align: center;
 }

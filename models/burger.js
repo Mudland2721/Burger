@@ -12,8 +12,8 @@ const burger = {
   },
 
   //insert One function
-  insertOne: function (objColVals, condition, cb) {
-    orm.insertOne("burgers", objColVals, condition, function (res) {
+  create: function (objColVals, condition, cb) {
+    orm.create("burgers", objColVals, condition, function (res) {
       cb(res);
     });
   },
