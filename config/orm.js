@@ -69,7 +69,7 @@ const orm = {
     queryString += condition;
 
     console.log(queryString);
-    console.query(queryString, function (err, res) {
+    connection.query(queryString, function (err, res) {
       if (err) {
         throw err;
       }
