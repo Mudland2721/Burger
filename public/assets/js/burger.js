@@ -11,6 +11,23 @@ $(document).ready(function () {
         location.reload();
       });
     });
+
+    $("#addBtn").on("click", function (event) {
+      console.log("clicked");
+      event.preventDefault();
+
+      let newBurger = {
+        name: $("#burg").val().trim(),
+        devoured: 0,
+      };
+
+      $.ajax("/api/burger", {
+        type: "POST",
+        data: newBurger,
+      }).then(function () {
+        location.reload();
+      });
+    });
   }
 });
 
@@ -20,7 +37,4 @@ $(document).ready(function () {
 //   //would like to know what this part is doing i don't understand it
 //     let newBur
 
-// });
-// $(".btn").on("click", function () {
-//   console.log("clicked");
 // });
