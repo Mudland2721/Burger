@@ -19,36 +19,26 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burger", function (req, res) {
-  console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
+  // console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
 
-  burger.create(
-    ["name", "devoured"],
-    [req.body.name, req.body.devoured],
-    function (res) {
-      res.json({ id: res.insertId });
-    }
-  );
-  console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
+  burger.create(["name", "devoured"], [req.body.name, req.body.id], function (
+    res
+  ) {
+    res.json({ id: res.insertId });
+  });
+  // console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
 });
 
 router.put("/api/burger/:id", function (req, res) {
-  let condition = "id = " + req.params.id;
+  let id = req.params.id;
 
-  console.log("HERE WE GOOOOOOOOOOOOOOOOOO!!!!!!!!", condition);
-
-  burger.updateOne(
-    {
-      devoured: req.body.devoured,
-    },
-    condition,
-    function (res) {
-      if (res.changedRows == 0) {
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
+  burger.updateOne(id, function (res) {
+    if (res.changedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
     }
-  );
+  });
 });
 
 router.delete("/api/burger/:id", function (req, res) {

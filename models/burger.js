@@ -18,9 +18,18 @@ const burger = {
     });
   },
 
-  //update One function
-  updateOne: function (objColVals, condition, cb) {
-    orm.updateOne("burgers", objColVals, condition, function (res) {
+  // update One function
+  // getting not a function error
+
+  updateOne: function (condition, cb) {
+    var condition = "id=" + id;
+    orm.updateOne("burgers", { devoured: true }, condition, function (res) {
+      cb(res);
+    });
+  },
+
+  delete: function (condition, cb) {
+    orm.delete("burgers", condition, function (res) {
       cb(res);
     });
   },
@@ -28,4 +37,3 @@ const burger = {
 
 // Export the database functions for the controller (catsController.js).
 module.exports = burger;
-

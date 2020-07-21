@@ -7,15 +7,11 @@ $(document).ready(function () {
       let id = $(this).data("id");
       let eaten = $(this).data("devoured");
 
-      let condition = {
-        notEaten: eaten,
-      };
+      //   let condition = {
+      //     notEaten: eaten,
+      //   };
       $.ajax("/api/burger/" + id, {
         type: "PUT",
-        data: condition,
-      }).then(function () {
-        console.log(`changed burger to`, eaten);
-        location.reload();
       });
     });
   }

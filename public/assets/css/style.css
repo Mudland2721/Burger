@@ -2,6 +2,18 @@ body {
   background-image: url(../images/burgerPic.jpg);
 }
 
+h1 {
+  color: yellow;
+}
+
+h2 {
+  color: yellow;
+}
+
+ul {
+  color: yellow;
+}
+
 li {
   padding: 5px;
   margin: 5px;
@@ -20,4 +32,7 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+label {
+  color: yellow;
 }
