@@ -11,3 +11,5 @@ app.use(routes);
 
 app.listen(port);
 console.log("localhost: 8080");
+
+//server is having a Error: listen EADDRINUSE: address already in use :::8080 error

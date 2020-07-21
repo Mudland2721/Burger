@@ -1,11 +1,11 @@
-var orm = require("../config/orm.js");
+const orm = require("../config/orm.js");
 
 // The variables cols and vals are arrays.
-var burger = {
+const burger = {
   //select All function
-  all: function (cb) {
-    orm.all("burgers", function (res) {
-      console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
+  all: function (cols, vals, cb) {
+    orm.all("burgers", cols, vals, function (res) {
+      // console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
 
       cb(res);
     });
@@ -28,3 +28,4 @@ var burger = {
 
 // Export the database functions for the controller (catsController.js).
 module.exports = burger;
+

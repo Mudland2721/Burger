@@ -11,18 +11,16 @@ router.get("/", function (req, res) {
     let burgerObj = {
       burgerObj: data,
     };
-    console.log(burgerObj);
+    /// not getting here
     res.render("index", burgerObj);
+
+    console.log(burgerObj);
   });
 });
 
-//i can get to homepage -- it doesnt like the all orm
-// router.get("/", function (req, res) {
-//   console.log("here we GOOOOOOOOOOOOOOOOOOO");
-//   res.render("index");
-// });
-
 router.post("/api/burger", function (req, res) {
+  console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
+
   burger.create(
     ["name", "devoured"],
     [req.body.name, req.body.devoured],
@@ -30,6 +28,7 @@ router.post("/api/burger", function (req, res) {
       res.json({ id: res.insertId });
     }
   );
+  console.log(`HERE WE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`);
 });
 
 router.put("/api/burger/:id", function (req, res) {
